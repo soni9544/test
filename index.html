@@ -6,58 +6,20 @@
     <title>Wedding RSVP</title>
 </head>
 <body>
-
-<h1>Wedding RSVP</h1>
-
-<form id="rsvp-form" method="POST" action="https://formspree.io/ku.neelam95.nk@gmail.com">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
-    
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    
-    <label for="attend">Will you attend?</label>
-    <select id="attend" name="attend" required>
-        <option value="yes">Yes, I'll be there!</option>
-        <option value="no">Sorry, I can't make it.</option>
-    </select><br><br>
-    
-    <button type="submit">Submit RSVP</button>
-</form>
-
-<script>
-    document.getElementById("rsvp-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-        
-        // Get form data
-        var form = event.target;
-        var formData = new FormData(form);
-        
-        // Send form data to Formspree
-        fetch('https://formspree.io/ku.neelam95.nk@gmail.com', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(function(response) {
-            // Handle the response from Formspree
-            if (response.ok) {
-                // Form submission was successful
-                alert("Thank you for your RSVP!");
-                form.reset(); // Reset the form
-            } else {
-                // Form submission failed
-                alert("Error submitting RSVP. Please try again later.");
-            }
-        })
-        .catch(function(error) {
-            // Handle any errors
-            console.error('Error:', error);
-        });
-    });
-</script>
-
+    <h1>Wedding RSVP</h1>
+    <form action="https://formspree.io/f/mwkgqbjz" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="attend">Will you attend?</label><br>
+        <select id="attend" name="attend" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><br>
+        <button type="submit">Submit RSVP</button>
+    </form>
 </body>
 </html>
